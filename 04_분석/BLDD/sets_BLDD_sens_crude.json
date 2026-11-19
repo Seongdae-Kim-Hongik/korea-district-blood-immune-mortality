@@ -1,0 +1,1584 @@
+{
+ "tag": "BLDD",
+ "outcome_column": "ext__bldd_deaths",
+ "outcome_label_en": "Deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89; Statistics Korea cause-of-death statistics, annual, place of residence)",
+ "disease_en": "Blood, blood-forming organ and immune disorder mortality",
+ "disease_ko": "혈액·조혈기관·면역 질환 사망",
+ "forced": [
+  "ext__urban_population_share",
+  "ext__physicians_per_1000",
+  "ext__sex_ratio",
+  "ext__fiscal_independence",
+  "ext__pop80_share"
+ ],
+ "negative_controls": [
+  "ext__hit_and_run_rate",
+  "ext__traffic_culture_index",
+  "ext__fires_per_10000"
+ ],
+ "offset_E_column": "E_crude",
+ "offset_E_file": "BLDD_Estd25.csv",
+ "offset_E_label": "crude E (population x national annual death rate)",
+ "graph": "593-edge contact graph, ST_GRAPH=04_분석/BLDD/graph_593.graph",
+ "population_override": [
+  {
+   "year": 2023,
+   "fbd_region": "경상남도창원시",
+   "population": 1009038,
+   "source": "KOSIS DT_1YL20651E 2023 통합창원시 계(유방암 11/4 population_final_audit)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도강릉시",
+   "population": 206237.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도고성군",
+   "population": 26845.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도동해시",
+   "population": 86333.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도삼척시",
+   "population": 60518.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도속초시",
+   "population": 79636.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도양구군",
+   "population": 20410.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도양양군",
+   "population": 27292.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도영월군",
+   "population": 36054.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도원주시",
+   "population": 363194.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도인제군",
+   "population": 30863.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도정선군",
+   "population": 34879.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도철원군",
+   "population": 39979.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도춘천시",
+   "population": 285234.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도태백시",
+   "population": 37088.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도평창군",
+   "population": 39831.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도홍천군",
+   "population": 66109.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도화천군",
+   "population": 22371.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "강원도횡성군",
+   "population": 45627.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도가평군",
+   "population": 62125.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도고양시",
+   "population": 1060081.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도과천시",
+   "population": 79908.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도광명시",
+   "population": 293947.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도광주시",
+   "population": 397346.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도구리시",
+   "population": 186090.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도군포시",
+   "population": 251367.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도김포시",
+   "population": 484792.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도남양주시",
+   "population": 729754.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도동두천시",
+   "population": 86438.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도부천시",
+   "population": 758796.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도성남시",
+   "population": 905794.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도수원시",
+   "population": 1186515.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도시흥시",
+   "population": 515032.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도안산시",
+   "population": 612508.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도안성시",
+   "population": 196592.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도안양시",
+   "population": 563279.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도양주시",
+   "population": 296224.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도양평군",
+   "population": 126933.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도여주시",
+   "population": 114002.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도연천군",
+   "population": 42340.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도오산시",
+   "population": 249410.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도용인시",
+   "population": 1091186.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도의왕시",
+   "population": 160370.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도의정부시",
+   "population": 461572.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도이천시",
+   "population": 222967.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도파주시",
+   "population": 526005.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도평택시",
+   "population": 610402.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도포천시",
+   "population": 140452.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도하남시",
+   "population": 327939.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경기도화성시",
+   "population": 989969.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도거제시",
+   "population": 231178.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도거창군",
+   "population": 58980.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도고성군",
+   "population": 47099.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도김해시",
+   "population": 533035.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도남해군",
+   "population": 40770.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도밀양시",
+   "population": 99252.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도사천시",
+   "population": 107935.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도산청군",
+   "population": 32745.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도양산시",
+   "population": 361155.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도의령군",
+   "population": 24636.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도진주시",
+   "population": 335939.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도창녕군",
+   "population": 54900.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도창원시",
+   "population": 990898.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도통영시",
+   "population": 116667.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도하동군",
+   "population": 39974.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도함안군",
+   "population": 57558.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도함양군",
+   "population": 35472.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상남도합천군",
+   "population": 39190.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도경산시",
+   "population": 263853.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도경주시",
+   "population": 244055.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도고령군",
+   "population": 29667.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도구미시",
+   "population": 403883.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도김천시",
+   "population": 133791.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도문경시",
+   "population": 65348.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도봉화군",
+   "population": 28315.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도상주시",
+   "population": 89888.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도성주군",
+   "population": 40720.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도안동시",
+   "population": 152610.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도영덕군",
+   "population": 32698.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도영양군",
+   "population": 15941.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도영주시",
+   "population": 97162.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도영천시",
+   "population": 95185.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도예천군",
+   "population": 53887.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도울릉군",
+   "population": 8696.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도울진군",
+   "population": 45896.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도의성군",
+   "population": 47902.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도청도군",
+   "population": 40117.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도청송군",
+   "population": 23363.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도칠곡군",
+   "population": 104842.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "경상북도포항시",
+   "population": 488707.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "광주시광산구",
+   "population": 387604.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "광주시남구",
+   "population": 207596.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "광주시동구",
+   "population": 104888.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "광주시북구",
+   "population": 416862.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "광주시서구",
+   "population": 275063.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시군위군",
+   "population": 22452.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시남구",
+   "population": 135542.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시달서구",
+   "population": 517059.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시달성군",
+   "population": 254659.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시동구",
+   "population": 339281.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시북구",
+   "population": 409854.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시서구",
+   "population": 163956.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시수성구",
+   "population": 409222.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대구시중구",
+   "population": 101007.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대전시대덕구",
+   "population": 165535.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대전시동구",
+   "population": 218664.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대전시서구",
+   "population": 463351.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대전시유성구",
+   "population": 367534.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "대전시중구",
+   "population": 225645.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시강서구",
+   "population": 150299.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시금정구",
+   "population": 206588.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시기장군",
+   "population": 174898.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시남구",
+   "population": 250668.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시동구",
+   "population": 83851.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시동래구",
+   "population": 273277.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시부산진구",
+   "population": 365378.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시북구",
+   "population": 262862.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시사상구",
+   "population": 194124.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시사하구",
+   "population": 286222.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시서구",
+   "population": 101892.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시수영구",
+   "population": 169112.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시연제구",
+   "population": 211727.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시영도구",
+   "population": 101580.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시중구",
+   "population": 36518.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "부산시해운대구",
+   "population": 372604.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시강남구",
+   "population": 556330.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시강동구",
+   "population": 499127.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시강북구",
+   "population": 278928.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시강서구",
+   "population": 549711.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시관악구",
+   "population": 477605.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시광진구",
+   "population": 331167.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시구로구",
+   "population": 383829.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시금천구",
+   "population": 223290.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시노원구",
+   "population": 483541.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시도봉구",
+   "population": 299899.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시동대문구",
+   "population": 346241.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시동작구",
+   "population": 371924.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시마포구",
+   "population": 357616.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시서대문구",
+   "population": 300147.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시서초구",
+   "population": 414428.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시성동구",
+   "population": 274606.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시성북구",
+   "population": 422559.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시송파구",
+   "population": 643350.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시양천구",
+   "population": 425088.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시영등포구",
+   "population": 371362.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시용산구",
+   "population": 201894.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시은평구",
+   "population": 455137.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시종로구",
+   "population": 137048.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시중구",
+   "population": 117805.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "서울시중랑구",
+   "population": 376916.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "세종시세종시",
+   "population": 391965.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "울산시남구",
+   "population": 304128.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "울산시동구",
+   "population": 149257.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "울산시북구",
+   "population": 215220.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "울산시울주군",
+   "population": 219174.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "울산시중구",
+   "population": 204169.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시강화군",
+   "population": 69698.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시계양구",
+   "population": 277721.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시남구",
+   "population": 417578.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시남동구",
+   "population": 480147.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시동구",
+   "population": 56477.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시부평구",
+   "population": 490442.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시서구",
+   "population": 654358.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시연수구",
+   "population": 409437.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시옹진군",
+   "population": 19636.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "인천시중구",
+   "population": 176467.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도강진군",
+   "population": 31799.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도고흥군",
+   "population": 59455.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도곡성군",
+   "population": 27287.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도광양시",
+   "population": 155259.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도구례군",
+   "population": 23803.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도나주시",
+   "population": 117076.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도담양군",
+   "population": 44177.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도목포시",
+   "population": 202003.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도무안군",
+   "population": 95592.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도보성군",
+   "population": 36858.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도순천시",
+   "population": 275492.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도신안군",
+   "population": 41858.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도여수시",
+   "population": 263284.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도영광군",
+   "population": 53526.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도영암군",
+   "population": 50069.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도완도군",
+   "population": 44613.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도장성군",
+   "population": 42958.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도장흥군",
+   "population": 34201.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도진도군",
+   "population": 27964.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도함평군",
+   "population": 29458.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도해남군",
+   "population": 62188.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라남도화순군",
+   "population": 60215.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도고창군",
+   "population": 50396.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도군산시",
+   "population": 256291.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도김제시",
+   "population": 81676.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도남원시",
+   "population": 74272.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도무주군",
+   "population": 22787.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도부안군",
+   "population": 47220.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도순창군",
+   "population": 27714.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도완주군",
+   "population": 100444.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도익산시",
+   "population": 267066.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도임실군",
+   "population": 25259.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도장수군",
+   "population": 20922.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도전주시",
+   "population": 625437.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도정읍시",
+   "population": 101123.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "전라북도진안군",
+   "population": 24249.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "제주도서귀포시",
+   "population": 179610.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "제주도제주시",
+   "population": 485182.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도계룡시",
+   "population": 45846.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도공주시",
+   "population": 99979.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도금산군",
+   "population": 48898.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도논산시",
+   "population": 106777.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도당진시",
+   "population": 172564.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도보령시",
+   "population": 92117.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도부여군",
+   "population": 58377.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도서산시",
+   "population": 172438.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도서천군",
+   "population": 47225.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도아산시",
+   "population": 359378.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도예산군",
+   "population": 78815.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도천안시",
+   "population": 664322.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도청양군",
+   "population": 29986.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도태안군",
+   "population": 59474.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청남도홍성군",
+   "population": 100557.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도괴산군",
+   "population": 38293.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도단양군",
+   "population": 26812.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도보은군",
+   "population": 30529.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도영동군",
+   "population": 43032.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도옥천군",
+   "population": 49601.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도음성군",
+   "population": 94280.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도제천시",
+   "population": 128003.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도증평군",
+   "population": 36680.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도진천군",
+   "population": 86580.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도청주시",
+   "population": 856152.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  },
+  {
+   "year": 2025,
+   "fbd_region": "충청북도충주시",
+   "population": 206540.0,
+   "source": "기준 02 SQLite region_year 2025 population(마스터 2025 인구 결측)"
+  }
+ ],
+ "sensitivity_only_extra": [
+  "ext__dm_suspect_share",
+  "ext__older_single_share",
+  "ext__genhosp_per100k"
+ ],
+ "sets": {
+  "S1_narrative_full": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "ext__basic_livelihood_rate",
+   "ext__tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ext__ltc_hospitals_per100k_65",
+   "ext__im_specialists_per100k",
+   "ext__ill_defined_share"
+  ],
+  "S2_host_burden": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share"
+  ],
+  "S3_deprivation_access": [
+   "ext__basic_livelihood_rate",
+   "ext__tertiary_educated_share",
+   "ext__unmet_need_rate"
+  ],
+  "S4_care_certification": [
+   "ext__ltc_hospitals_per100k_65",
+   "ext__im_specialists_per100k",
+   "ext__ill_defined_share"
+  ],
+  "S5_core": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "ext__basic_livelihood_rate",
+   "ext__ltc_hospitals_per100k_65",
+   "ext__ill_defined_share"
+  ]
+ },
+ "transform": {
+  "ext__urban_population_share": "none",
+  "ext__physicians_per_1000": "none",
+  "ext__sex_ratio": "none",
+  "ext__fiscal_independence": "none",
+  "ext__pop80_share": "none",
+  "ext__anaemia_suspect_sir": "log",
+  "ext__kidney_suspect_share": "none",
+  "ext__basic_livelihood_rate": "none",
+  "ext__tertiary_educated_share": "none",
+  "ext__unmet_need_rate": "none",
+  "ext__ltc_hospitals_per100k_65": "none",
+  "ext__im_specialists_per100k": "log1p",
+  "ext__ill_defined_share": "none",
+  "ext__hit_and_run_rate": "none",
+  "ext__traffic_culture_index": "none",
+  "ext__fires_per_10000": "none",
+  "ext__dm_suspect_share": "none",
+  "ext__older_single_share": "none",
+  "ext__genhosp_per100k": "none"
+ },
+ "expected_direction": {
+  "ext__anaemia_suspect_sir": "+",
+  "ext__kidney_suspect_share": "+",
+  "ext__basic_livelihood_rate": "+",
+  "ext__tertiary_educated_share": "-",
+  "ext__unmet_need_rate": "+",
+  "ext__ltc_hospitals_per100k_65": "+",
+  "ext__im_specialists_per100k": "-",
+  "ext__ill_defined_share": "-"
+ },
+ "rules": {
+  "likelihood": "forced-only 모형 WAIC 낮은 쪽(Poisson/NB)",
+  "set_choice": "WAIC 최소, 4 이내면 변수 적은 세트",
+  "credible": "95% CrI 1 제외",
+  "vif_drop": 10,
+  "multiverse_specs": 200,
+  "main_model_note": "Principal model = S1_narrative_full (8 district characteristics + 5 forced controls). VIF>10 retained and reported.",
+  "years": [
+   2011,
+   2025
+  ],
+  "windows": {
+   "W1_2011-15": [
+    2011,
+    2015
+   ],
+   "W2_2016-19": [
+    2016,
+    2019
+   ],
+   "W3_2020-25": [
+    2020,
+    2025
+   ]
+  },
+  "covid_post_from": 2020
+ },
+ "note": "Outcome: deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89), 2011-2025. District characteristics: suspected anaemia (standardised ratio) and suspected kidney disease at national health screening, basic livelihood security recipients, tertiary education, unmet medical need, long-term care hospitals per 100,000 aged 65+, internal-medicine specialists per 100,000 and ill-defined causes of death; five forced controls; negative control exposures hit-and-run collisions, traffic-culture index and fires; comparison outcomes transport-injury deaths and gastric cancer patients. Values not published for 2025 carry their 2024 values.",
+ "extra_columns": {
+  "ext__urban_population_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "urban_population_share"
+  ],
+  "ext__physicians_per_1000": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "physicians_per_1000"
+  ],
+  "ext__sex_ratio": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "sex_ratio"
+  ],
+  "ext__fiscal_independence": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "fiscal_independence"
+  ],
+  "ext__pop80_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "pop80_share"
+  ],
+  "ext__anaemia_suspect_sir": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "anaemia_suspect_sir"
+  ],
+  "ext__kidney_suspect_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "kidney_suspect_share"
+  ],
+  "ext__basic_livelihood_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "basic_livelihood_rate"
+  ],
+  "ext__tertiary_educated_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "tertiary_educated_share"
+  ],
+  "ext__unmet_need_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "unmet_need_rate"
+  ],
+  "ext__ltc_hospitals_per100k_65": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "ltc_hospitals_per100k_65"
+  ],
+  "ext__im_specialists_per100k": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "im_specialists_per100k"
+  ],
+  "ext__ill_defined_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "ill_defined_share"
+  ],
+  "ext__hit_and_run_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "hit_and_run_rate"
+  ],
+  "ext__traffic_culture_index": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "traffic_culture_index"
+  ],
+  "ext__fires_per_10000": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "fires_per_10000"
+  ],
+  "ext__dm_suspect_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "dm_suspect_share"
+  ],
+  "ext__older_single_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "older_single_share"
+  ],
+  "ext__genhosp_per100k": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "genhosp_per100k"
+  ],
+  "ext__bldd_deaths": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "bldd_deaths"
+  ]
+ }
+}

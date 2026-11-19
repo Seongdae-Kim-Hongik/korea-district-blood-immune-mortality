@@ -1,0 +1,210 @@
+{
+ "tag": "BLDD",
+ "outcome_column": "ext__bldd_deaths",
+ "outcome_label_en": "Deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89; Statistics Korea cause-of-death statistics, annual, place of residence)",
+ "disease_en": "Blood, blood-forming organ and immune disorder mortality",
+ "disease_ko": "혈액·조혈기관·면역 질환 사망",
+ "forced": [
+  "ext__urban_population_share",
+  "ext__physicians_per_1000",
+  "ext__sex_ratio",
+  "ext__fiscal_independence",
+  "ext__pop80_share"
+ ],
+ "negative_controls": [
+  "ext__hit_and_run_rate",
+  "ext__traffic_culture_index",
+  "ext__fires_per_10000"
+ ],
+ "offset_E_column": "E_std",
+ "offset_E_file": "BLDD_Estd25.csv",
+ "offset_E_label": "sex-and-age-standardised E, 2 sexes x 18 five-year bands to 85+ (national cause-specific death rates by year, sex and age, KOSIS DT_1B34E01), 2011-2025",
+ "graph": "593-edge contact graph, ST_GRAPH=04_분석/BLDD/graph_593.graph",
+ "population_override": [
+  {
+   "year": 2023,
+   "fbd_region": "경상남도창원시",
+   "population": 1009038,
+   "source": "KOSIS DT_1YL20651E 2023 통합창원시 계(유방암 11/4 population_final_audit)"
+  }
+ ],
+ "sensitivity_only_extra": [
+  "ext__dm_suspect_share",
+  "ext__older_single_share",
+  "ext__genhosp_per100k"
+ ],
+ "sets": {
+  "S1_narrative_full": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "ext__basic_livelihood_rate",
+   "ext__tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ext__ltc_hospitals_per100k_65",
+   "ext__im_specialists_per100k",
+   "ext__ill_defined_share"
+  ],
+  "S2_host_burden": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share"
+  ],
+  "S3_deprivation_access": [
+   "ext__basic_livelihood_rate",
+   "ext__tertiary_educated_share",
+   "ext__unmet_need_rate"
+  ],
+  "S4_care_certification": [
+   "ext__ltc_hospitals_per100k_65",
+   "ext__im_specialists_per100k",
+   "ext__ill_defined_share"
+  ],
+  "S5_core": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "ext__basic_livelihood_rate",
+   "ext__ltc_hospitals_per100k_65",
+   "ext__ill_defined_share"
+  ]
+ },
+ "transform": {
+  "ext__urban_population_share": "none",
+  "ext__physicians_per_1000": "none",
+  "ext__sex_ratio": "none",
+  "ext__fiscal_independence": "none",
+  "ext__pop80_share": "none",
+  "ext__anaemia_suspect_sir": "log",
+  "ext__kidney_suspect_share": "none",
+  "ext__basic_livelihood_rate": "none",
+  "ext__tertiary_educated_share": "none",
+  "ext__unmet_need_rate": "none",
+  "ext__ltc_hospitals_per100k_65": "none",
+  "ext__im_specialists_per100k": "log1p",
+  "ext__ill_defined_share": "none",
+  "ext__hit_and_run_rate": "none",
+  "ext__traffic_culture_index": "none",
+  "ext__fires_per_10000": "none",
+  "ext__dm_suspect_share": "none",
+  "ext__older_single_share": "none",
+  "ext__genhosp_per100k": "none"
+ },
+ "expected_direction": {
+  "ext__anaemia_suspect_sir": "+",
+  "ext__kidney_suspect_share": "+",
+  "ext__basic_livelihood_rate": "+",
+  "ext__tertiary_educated_share": "-",
+  "ext__unmet_need_rate": "+",
+  "ext__ltc_hospitals_per100k_65": "+",
+  "ext__im_specialists_per100k": "-",
+  "ext__ill_defined_share": "-"
+ },
+ "rules": {
+  "likelihood": "forced-only 모형 WAIC 낮은 쪽(Poisson/NB)",
+  "set_choice": "WAIC 최소, 4 이내면 변수 적은 세트",
+  "credible": "95% CrI 1 제외",
+  "vif_drop": 10,
+  "multiverse_specs": 200,
+  "main_model_note": "Principal model = S1_narrative_full (8 district characteristics + 5 forced controls). VIF>10 retained and reported.",
+  "years": [
+   2011,
+   2024
+  ],
+  "windows": {
+   "W1_2011-15": [
+    2011,
+    2015
+   ],
+   "W2_2016-19": [
+    2016,
+    2019
+   ],
+   "W3_2020-24": [
+    2020,
+    2024
+   ]
+  },
+  "covid_post_from": 2020
+ },
+ "note": "Outcome: deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89), 2011-2025. District characteristics: suspected anaemia (standardised ratio) and suspected kidney disease at national health screening, basic livelihood security recipients, tertiary education, unmet medical need, long-term care hospitals per 100,000 aged 65+, internal-medicine specialists per 100,000 and ill-defined causes of death; five forced controls; negative control exposures hit-and-run collisions, traffic-culture index and fires; comparison outcomes transport-injury deaths and gastric cancer patients. Values not published for 2025 carry their 2024 values.",
+ "extra_columns": {
+  "ext__urban_population_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "urban_population_share"
+  ],
+  "ext__physicians_per_1000": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "physicians_per_1000"
+  ],
+  "ext__sex_ratio": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "sex_ratio"
+  ],
+  "ext__fiscal_independence": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "fiscal_independence"
+  ],
+  "ext__pop80_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "pop80_share"
+  ],
+  "ext__anaemia_suspect_sir": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "anaemia_suspect_sir"
+  ],
+  "ext__kidney_suspect_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "kidney_suspect_share"
+  ],
+  "ext__basic_livelihood_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "basic_livelihood_rate"
+  ],
+  "ext__tertiary_educated_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "tertiary_educated_share"
+  ],
+  "ext__unmet_need_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "unmet_need_rate"
+  ],
+  "ext__ltc_hospitals_per100k_65": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "ltc_hospitals_per100k_65"
+  ],
+  "ext__im_specialists_per100k": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "im_specialists_per100k"
+  ],
+  "ext__ill_defined_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "ill_defined_share"
+  ],
+  "ext__hit_and_run_rate": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "hit_and_run_rate"
+  ],
+  "ext__traffic_culture_index": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "traffic_culture_index"
+  ],
+  "ext__fires_per_10000": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "fires_per_10000"
+  ],
+  "ext__dm_suspect_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "dm_suspect_share"
+  ],
+  "ext__older_single_share": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "older_single_share"
+  ],
+  "ext__genhosp_per100k": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "genhosp_per100k"
+  ],
+  "ext__bldd_deaths": [
+   "EXT_canonical_pool_BLDD_261114.csv",
+   "bldd_deaths"
+  ]
+ }
+}

@@ -1,0 +1,394 @@
+{
+ "tag": "BLDD",
+ "outcome_column": "ext__bldd_deaths",
+ "outcome_label_en": "Deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89; Statistics Korea cause-of-death statistics, annual, place of residence)",
+ "disease_ko": "혈액·조혈기관·면역 질환 사망",
+ "disease_en": "Blood, blood-forming organ and immune disorder mortality",
+ "forced": [
+  "urban_population_share",
+  "physicians_per_1000",
+  "sex_ratio",
+  "fiscal_independence",
+  "pop80_share"
+ ],
+ "candidates": [
+  "ext__anaemia_suspect_sir",
+  "ext__kidney_suspect_share",
+  "basic_livelihood_rate",
+  "tertiary_educated_share",
+  "ext__unmet_need_rate",
+  "ltc_hospitals_per_100k_65",
+  "im_specialists_per_100k",
+  "ill_defined_death_share"
+ ],
+ "negative_controls": [
+  "hit_and_run_rate",
+  "traffic_culture_index",
+  "fires_per_10000"
+ ],
+ "sets": {
+  "S1_narrative_full": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share"
+  ],
+  "S2_host_burden": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share"
+  ],
+  "S3_deprivation_access": [
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate"
+  ],
+  "S4_care_certification": [
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share"
+  ],
+  "S5_core": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "ltc_hospitals_per_100k_65",
+   "ill_defined_death_share"
+  ],
+  "S1b_obesity_sensitivity": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share",
+   "obesity_rate"
+  ]
+ },
+ "sensitivity_sets": [
+  "S1b_obesity_sensitivity"
+ ],
+ "sensitivity_only_vars": [
+  "obesity_rate",
+  "screening_diabetes_suspected_share",
+  "ext__older_single_share",
+  "genhosp_per100k"
+ ],
+ "offset_column": "population",
+ "offset_sensitivity": null,
+ "offset_fallback": null,
+ "exclude_years": [],
+ "vars": {
+  "urban_population_share": {
+   "key": "urban_population_share",
+   "column": "ext__urban_population_share",
+   "transform": "none",
+   "label_en": "Urban-zone population share (%)",
+   "label_ko": "도시지역 인구 비율",
+   "expected_direction": "",
+   "role": "forced",
+   "raw_key": "ext__urban_population_share"
+  },
+  "physicians_per_1000": {
+   "key": "physicians_per_1000",
+   "column": "ext__physicians_per_1000",
+   "transform": "none",
+   "label_en": "Physicians per 1000",
+   "label_ko": "인구 천명당 의사 수",
+   "expected_direction": "",
+   "role": "forced",
+   "raw_key": "ext__physicians_per_1000"
+  },
+  "sex_ratio": {
+   "key": "sex_ratio",
+   "column": "ext__sex_ratio",
+   "transform": "none",
+   "label_en": "Sex ratio (men per 100 women)",
+   "label_ko": "남녀성비",
+   "expected_direction": "",
+   "role": "forced",
+   "raw_key": "ext__sex_ratio"
+  },
+  "fiscal_independence": {
+   "key": "fiscal_independence",
+   "column": "ext__fiscal_independence",
+   "transform": "none",
+   "label_en": "Fiscal independence (%)",
+   "label_ko": "재정자주도",
+   "expected_direction": "",
+   "role": "forced",
+   "raw_key": "ext__fiscal_independence"
+  },
+  "pop80_share": {
+   "key": "pop80_share",
+   "column": "ext__pop80_share",
+   "transform": "none",
+   "label_en": "Population aged 80+ share (%)",
+   "label_ko": "80세 이상 인구 비율",
+   "expected_direction": "",
+   "role": "forced",
+   "raw_key": "ext__pop80_share"
+  },
+  "ext__anaemia_suspect_sir": {
+   "key": "ext__anaemia_suspect_sir",
+   "column": "ext__anaemia_suspect_sir",
+   "transform": "log",
+   "label_en": "ext__anaemia_suspect_sir",
+   "label_ko": "ext__anaemia_suspect_sir",
+   "expected_direction": "+ (검진 빈혈 의심 성×연령 표준화비(30호): 지역 빈혈 부담 = D50-D64 사망의 기저 위험)",
+   "role": "candidate",
+   "raw_key": "ext__anaemia_suspect_sir"
+  },
+  "ext__kidney_suspect_share": {
+   "key": "ext__kidney_suspect_share",
+   "column": "ext__kidney_suspect_share",
+   "transform": "none",
+   "label_en": "ext__kidney_suspect_share",
+   "label_ko": "ext__kidney_suspect_share",
+   "expected_direction": "+ (검진 신장질환 의심 비율: 만성콩팥병 빈혈(신성 빈혈)·만성질환 빈혈의 기저 질환)",
+   "role": "candidate",
+   "raw_key": "ext__kidney_suspect_share"
+  },
+  "basic_livelihood_rate": {
+   "key": "basic_livelihood_rate",
+   "column": "ext__basic_livelihood_rate",
+   "transform": "none",
+   "label_en": "Basic-livelihood security recipient rate (%)",
+   "label_ko": "국민기초생활보장 수급자 비율",
+   "expected_direction": "+ (기초생활수급률: 영양 결핍성 빈혈·박탈)",
+   "role": "candidate",
+   "raw_key": "ext__basic_livelihood_rate"
+  },
+  "tertiary_educated_share": {
+   "key": "tertiary_educated_share",
+   "column": "ext__tertiary_educated_share",
+   "transform": "none",
+   "label_en": "Tertiary-educated share (%)",
+   "label_ko": "고등교육 이수 비율",
+   "expected_direction": "- (고등교육 비율: 사회경제 수준·건강 문해력)",
+   "role": "candidate",
+   "raw_key": "ext__tertiary_educated_share"
+  },
+  "ext__unmet_need_rate": {
+   "key": "ext__unmet_need_rate",
+   "column": "ext__unmet_need_rate",
+   "transform": "none",
+   "label_en": "ext__unmet_need_rate",
+   "label_ko": "ext__unmet_need_rate",
+   "expected_direction": "+ (미충족 의료 경험률: 진단·수혈·치료 지연)",
+   "role": "candidate",
+   "raw_key": "ext__unmet_need_rate"
+  },
+  "ltc_hospitals_per_100k_65": {
+   "key": "ltc_hospitals_per_100k_65",
+   "column": "ext__ltc_hospitals_per100k_65",
+   "transform": "none",
+   "label_en": "Long-term care hospitals per 100k aged 65+",
+   "label_ko": "요양병원 수(65세 이상 10만 명당)",
+   "expected_direction": "+ (65+ 10만 명당 요양병원: 쇠약 고령 입원자 사망과 빈혈의 사인 기재 집중)",
+   "role": "candidate",
+   "raw_key": "ext__ltc_hospitals_per100k_65"
+  },
+  "im_specialists_per_100k": {
+   "key": "im_specialists_per_100k",
+   "column": "ext__im_specialists_per100k",
+   "transform": "log1p",
+   "label_en": "Internal-medicine specialists per 100k",
+   "label_ko": "내과 전문의 수(10만 명당)",
+   "expected_direction": "- (내과 전문의 10만 명당, log1p: 혈액 질환 진단·치료 접근)",
+   "role": "candidate",
+   "raw_key": "ext__im_specialists_per100k"
+  },
+  "ill_defined_death_share": {
+   "key": "ill_defined_death_share",
+   "column": "ext__ill_defined_share",
+   "transform": "none",
+   "label_en": "Ill-defined cause-of-death share (R00-R99, %)",
+   "label_ko": "불명확 사인 사망 비율(R00-R99)",
+   "expected_direction": "- (불명확 사인 비율: 사인 기재가 불명확할수록 특정 혈액 질환 코드가 덜 쓰임(기재 관행 축))",
+   "role": "candidate",
+   "raw_key": "ext__ill_defined_share"
+  },
+  "obesity_rate": {
+   "key": "obesity_rate",
+   "column": "kchs__DT_H_OBE_OBE__SR",
+   "transform": "none",
+   "label_en": "Obesity rate (self-reported SR %)",
+   "label_ko": "비만율(자가보고)",
+   "expected_direction": "",
+   "role": "candidate_sensitivity",
+   "raw_key": "kchs__DT_H_OBE_OBE__SR"
+  },
+  "screening_diabetes_suspected_share": {
+   "key": "screening_diabetes_suspected_share",
+   "column": "ext__dm_suspect_share",
+   "transform": "none",
+   "label_en": "Screening diabetes-suspected share (%)",
+   "label_ko": "검진 당뇨병 질환의심 비율",
+   "expected_direction": "",
+   "role": "candidate_sensitivity",
+   "raw_key": "ext__dm_suspect_share"
+  },
+  "ext__older_single_share": {
+   "key": "ext__older_single_share",
+   "column": "ext__older_single_share",
+   "transform": "none",
+   "label_en": "ext__older_single_share",
+   "label_ko": "ext__older_single_share",
+   "expected_direction": "",
+   "role": "candidate_sensitivity",
+   "raw_key": "ext__older_single_share"
+  },
+  "genhosp_per100k": {
+   "key": "genhosp_per100k",
+   "column": "ext__genhosp_per100k",
+   "transform": "none",
+   "label_en": "General hospitals per 100k",
+   "label_ko": "종합병원 수(10만 명당)",
+   "expected_direction": "",
+   "role": "candidate_sensitivity",
+   "raw_key": "ext__genhosp_per100k"
+  },
+  "hit_and_run_rate": {
+   "key": "hit_and_run_rate",
+   "column": "ext__hit_and_run_rate",
+   "transform": "none",
+   "label_en": "Hit-and-run traffic accident rate (%)",
+   "label_ko": "뺑소니 교통사고율",
+   "expected_direction": "",
+   "role": "negative",
+   "raw_key": "ext__hit_and_run_rate"
+  },
+  "traffic_culture_index": {
+   "key": "traffic_culture_index",
+   "column": "ext__traffic_culture_index",
+   "transform": "none",
+   "label_en": "Traffic culture index",
+   "label_ko": "교통문화지수",
+   "expected_direction": "",
+   "role": "negative",
+   "raw_key": "ext__traffic_culture_index"
+  },
+  "fires_per_10000": {
+   "key": "fires_per_10000",
+   "column": "ext__fires_per_10000",
+   "transform": "none",
+   "label_en": "Fires per 10 000 residents",
+   "label_ko": "주민 만명당 화재 발생 건수",
+   "expected_direction": "",
+   "role": "negative",
+   "raw_key": "ext__fires_per_10000"
+  }
+ },
+ "rules": {
+  "waic_tol": 4.0,
+  "cpo_fail_frac": 0.05,
+  "main_set": "S1_narrative_full",
+  "vif_threshold": 10.0,
+  "vif_action": "report",
+  "multiverse_n": 200,
+  "windows": {
+   "W1_2011-15": [
+    2011,
+    2015
+   ],
+   "W2_2016-19": [
+    2016,
+    2019
+   ],
+   "W3_2020-25": [
+    2020,
+    2025
+   ]
+  },
+  "covid_post_from": 2020,
+  "years": [
+   2011,
+   2025
+  ],
+  "raw_rules": {
+   "likelihood": "forced-only 모형 WAIC 낮은 쪽(Poisson/NB)",
+   "set_choice": "WAIC 최소, 4 이내면 변수 적은 세트",
+   "credible": "95% CrI 1 제외",
+   "vif_drop": 10,
+   "multiverse_specs": 200,
+   "main_model_note": "주모형 = S1_narrative_full(가설 8 + 강제통제 5). 세트를 다시 바꾸지 않음. VIF>10 유지·보고.",
+   "years": [
+    2011,
+    2025
+   ],
+   "windows": {
+    "W1_2011-15": [
+     2011,
+     2015
+    ],
+    "W2_2016-19": [
+     2016,
+     2019
+    ],
+    "W3_2020-25": [
+     2020,
+     2025
+    ]
+   },
+   "covid_post_from": 2020
+  },
+  "main_model_note": "Principal model = S1_narrative_full (8 district characteristics + 5 forced controls). VIF>10 retained and reported."
+ },
+ "note": "Outcome: deaths from diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (ICD-10 D50-D89), 2011-2025. District characteristics: suspected anaemia (standardised ratio) and suspected kidney disease at national health screening, basic livelihood security recipients, tertiary education, unmet medical need, long-term care hospitals per 100,000 aged 65+, internal-medicine specialists per 100,000 and ill-defined causes of death; five forced controls; negative control exposures hit-and-run collisions, traffic-culture index and fires; comparison outcomes transport-injury deaths and gastric cancer patients. Values not published for 2025 carry their 2024 values.",
+ "source_json": "sets_BLDD_std3_main.json",
+ "suffix": "_std3_main",
+ "offset_E_column": "E_std",
+ "offset_E_file": "BLDD_Estd25.csv",
+ "offset_E_sensitivity_column": null,
+ "offset_E_label": "sex-and-age-standardised E, 2 sexes x 18 five-year bands to 85+ (national cause-specific death rates by year, sex and age, KOSIS DT_1B34E01), 2011-2025",
+ "sets_after_vif": {
+  "S1_narrative_full": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share"
+  ],
+  "S2_host_burden": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share"
+  ],
+  "S3_deprivation_access": [
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate"
+  ],
+  "S4_care_certification": [
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share"
+  ],
+  "S5_core": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "ltc_hospitals_per_100k_65",
+   "ill_defined_death_share"
+  ],
+  "S1b_obesity_sensitivity": [
+   "ext__anaemia_suspect_sir",
+   "ext__kidney_suspect_share",
+   "basic_livelihood_rate",
+   "tertiary_educated_share",
+   "ext__unmet_need_rate",
+   "ltc_hospitals_per_100k_65",
+   "im_specialists_per_100k",
+   "ill_defined_death_share",
+   "obesity_rate"
+  ]
+ }
+}
