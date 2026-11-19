@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite it as below."
-title: "District geography of deaths from anemias and immune disorders, Republic of Korea, 2011-2025 (analysis code)"
+title: "District geography of deaths from blood and immune disorders, Republic of Korea, 2011-2025 (analysis code)"
 authors:
   - family-names: Kim
     given-names: Seongdae
     affiliation: Hongik University
     orcid: "https://orcid.org/0000-0002-1525-0091"
-version: "1.0.0"
+version: "1.0.1"
 date-released: 2026-11-19
 license: MIT
 repository-code: "https://github.com/Seongdae-Kim-Hongik/korea-district-blood-immune-mortality"
-doi: 10.5281/zenodo.24366493
+doi: 10.5281/zenodo.24366898

@@ -5,7 +5,7 @@ import content_bldd as C
 from build_bldd import LABEL, GROUPS, TX, TITLE as DTITLE, foot_row
 HERE = os.path.dirname(os.path.abspath(__file__)); MSD = os.path.dirname(HERE); OUT = os.path.join(MSD, "out"); B = os.path.dirname(MSD); RS = os.path.join(B, "results_std3_main")
 N = C.N
-st = lambda t: f"{t[0]:.2f} ({t[1]:.2f}–{t[2]:.2f})"
+from build_bldd import f3 as st
 J = TX(cite="bracket")
 def TF(title, header, rows, foot="", fs=8):
     J.page_break(); J.table_fit(title, header, rows, "", fs_max=fs, title_bold=True)
@@ -33,7 +33,7 @@ for h, t in SM: J.para(f"<b>{h}</b> {t}")
 J.para("<b>Additional results.</b> " + f"Posterior predictive 95% intervals covered {100*PPC['coverage95']:.1f}% of district-years. The post-2020 indicator was not associated with deaths after adjustment ({st(N['covid_main'])}). "
        f"The ratio of the 90th to the 10th percentile of smoothed annual district SMRs was {N['gap'][2011]['ratio']:.2f} in 2011 and {N['gap'][2025]['ratio']:.2f} in 2025. "
        f"Kendall's W was {N['kendall']['2011-2019']:.2f} over 2011–2019 and {N['kendall']['2020-2025']:.2f} over 2020–2025. In emerging hot spot analysis, {N['ehsa'].get('Consecutive hot', 0)} district was a consecutive hot spot, {N['ehsa'].get('Intensifying hot', 0)} were intensifying hot spots, {N['ehsa'].get('Sporadic hot', 0)} were sporadic hot spots and {N['ehsa'].get('Sporadic cold', 0)} were sporadic cold spots; none was persistent. "
-       f"With crude expected deaths the urban population share ({st(N['sens']['sens_crude']['urban_population_share'])}) and tertiary-educated share ({st(N['sens']['sens_crude'][C.TE])}) also became credible.")
+       f"With crude expected deaths, livelihood recipients ({st(N['sens']['sens_crude'][C.BLS])}), tertiary education ({st(N['sens']['sens_crude'][C.TE])}), internal-medicine specialists ({st(N['sens']['sens_crude'][C.IMS])}), urban population share ({st(N['sens']['sens_crude']['urban_population_share'])}) and the share aged 80 years or older ({st(N['sens']['sens_crude'][C.P80])}) also became credible.")
 # ── Supplementary Table S1 ──
 DIR = {C.ANE: "+", C.KID: "+", C.BLS: "+", C.TE: "−", C.UNM: "+", C.LTC: "+", C.IMS: "−", C.ILL: "−"}
 SRCN = {C.ANE: "National health screening", C.KID: "National health screening", C.BLS: "District panel", C.TE: "Census (district panel)", C.UNM: "Community Health Survey", C.LTC: "District panel", C.IMS: "District panel", C.ILL: "Cause-of-death statistics",
@@ -72,8 +72,8 @@ TF("Supplementary Table S3 Rate ratios per 1 standard deviation across alternati
    "Values are rate ratios (95% credible intervals) per 1 standard deviation; –, not estimated. *The 14 alternative fits counted in the main text. For the Spatial+-type model, rate ratios are per 1 standard deviation of the residualised covariate. Comparison outcomes were fitted with the same covariates and model. WAIC: widely applicable information criterion (not comparable across outcomes or numbers of years); ICAR: intrinsic conditional autoregressive; IID: independent and identically distributed; RW2: second-order random walk; AR1: first-order autoregressive. "
    f"Omitting each province: fiscal autonomy credible in {N['leaveout'][('province', C.FIS)][1]} of {N['leaveout'][('province', C.FIS)][0]}; omitting each year: {N['leaveout'][('year', C.FIS)][1]} of {N['leaveout'][('year', C.FIS)][0]}. No hypothesised characteristic was credible in more than one alternative specification other than the crude-expected, independent-district-effect and no-district-effect models.", fs=7)
 # ── Supplementary Table S4 핫·콜드 ──
-EN = {"서울시": "Seoul", "부산시": "Busan", "대구시": "Daegu", "인천시": "Incheon", "광주시": "Gwangju", "대전시": "Daejeon", "울산시": "Ulsan", "세종시": "Sejong", "경기도": "Gyeonggi-do", "강원도": "Gangwon-do", "충청북도": "Chungcheongbuk-do",
-      "충청남도": "Chungcheongnam-do", "전라북도": "Jeollabuk-do", "전라남도": "Jeollanam-do", "경상북도": "Gyeongsangbuk-do", "경상남도": "Gyeongsangnam-do", "제주도": "Jeju"}
+EN = {"서울시": "Seoul", "부산시": "Busan", "대구시": "Daegu", "인천시": "Incheon", "광주시": "Gwangju", "대전시": "Daejeon", "울산시": "Ulsan", "세종시": "Sejong", "경기도": "Gyeonggi-do", "강원도": "Gangwon State", "충청북도": "Chungcheongbuk-do",
+      "충청남도": "Chungcheongnam-do", "전라북도": "Jeonbuk State", "전라남도": "Jeollanam-do", "경상북도": "Gyeongsangbuk-do", "경상남도": "Gyeongsangnam-do", "제주도": "Jeju"}
 ROM = json.load(open(os.path.join(HERE, "district_romanization_all.json"), encoding="utf-8"))   # 공식 영문 시군구명 229곳(SCRT 사본)
 S6 = N["s6"].copy(); S6["sido"] = S6.fbd_region.str.extract(r"^(\S+?(?:도|시))")[0]; S6["sgg"] = [r[len(s):] for r, s in zip(S6.fbd_region, S6.sido)]
 rom = lambda region: ROM[region]

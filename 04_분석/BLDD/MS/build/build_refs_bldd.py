@@ -30,6 +30,9 @@ FIXP = {}   # 전자 논문 번호(Crossref article-number, 11/13)
 for k, v in out.items():
     if k in FIXP: v["pages"] = FIXP[k]
     if v.get("type") == "journal": v["pages"] = fullp(v.get("pages", "")); v["authors"] = [a.title() if a.isupper() else a for a in v["authors"]]
+if "gaskell2008prevalence" in out: out["gaskell2008prevalence"]["authors"] = ["Moore RA" if x == "Andrew Moore R" else x for x in out["gaskell2008prevalence"]["authors"]]   # PubMed 이름 필드 정렬 오류
+OLD_MOIS = "web:mois2026population"
+if OLD_MOIS in out: out[OLD_MOIS]["title"] = "Resident registration population by district, sex and 5-year age group, 2011-2025"
 json.dump(out, open(os.path.join(HERE, "refs_bldd.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(len(keys), "keys;", len(pm), "from PubMed;", [k for k in keys if k not in out])
 for k in keys: v = out[k]; print(k, "|", v.get("journal"), v.get("year"), v.get("vol"), v.get("pages"), "|", str(v.get("title"))[:70])

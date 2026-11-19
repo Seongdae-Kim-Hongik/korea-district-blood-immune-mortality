@@ -4,7 +4,10 @@
 #  단독 저자 → 1인칭 금지. 결과 절 해석 금지. 제목 쌍점 금지.
 from numbers_bldd import load, HYP, FORCED, ANE, KID, BLS, TE, UNM, LTC, IMS, ILL, FIS, P80
 N = load()
-def tci(t): return f"RR {t[0]:.2f}, 95% CrI {t[1]:.2f}–{t[2]:.2f}"
+def _fmt(t):   # 소수 2자리, 단 구간 끝이 1.00으로 보이거나 하한=상한이면 3자리(판정은 반올림 전 값)
+    d = 3 if (f"{t[1]:.2f}" == "1.00" or f"{t[2]:.2f}" == "1.00" or f"{t[1]:.2f}" == f"{t[2]:.2f}") else 2
+    return f"{t[0]:.{d}f}", f"{t[1]:.{d}f}", f"{t[2]:.{d}f}"
+def tci(t): a, b, c = _fmt(t); return f"RR {a}, 95% CrI {b}–{c}"
 def ci(v): r = N["main"][v]; return tci((r["IRR"], r["lo"], r["hi"]))
 M = N["main"]; T1 = N["T1"]
 S43 = lambda a, v: N["s43"][(a, v)]
@@ -13,10 +16,10 @@ NCO = lambda o, v: N["nco"][(o, v)]
 SEN = lambda s, v: N["sens"][s][v]
 KH = ("KH_typeI", "KH_typeII", "KH_typeIII", "KH_typeIV"); BEST_KH = min(KH, key=lambda a: N["s43_waic"][a]); assert BEST_KH == "KH_typeIV"
 EN = {"서울시": "Seoul", "경기도": "Gyeonggi-do", "충청남도": "Chungcheongnam-do", "부산시": "Busan", "경상남도": "Gyeongsangnam-do", "경상북도": "Gyeongsangbuk-do", "울산시": "Ulsan",
-      "전라북도": "Jeollabuk-do", "전라남도": "Jeollanam-do"}
+      "전라북도": "Jeonbuk State", "전라남도": "Jeollanam-do"}
 def sidos(d):
     l = [f"{EN[k]} ({v})" for k, v in d.items()]; return ", ".join(l[:-1]) + " and " + l[-1]
-TITLE = "Is the excess of deaths from anaemias and immune disorders in Busan, Korea, explained by anaemia burden, deprivation or care?"
+TITLE = "Is the excess of deaths from blood and immune disorders in Busan, Korea, explained by anaemia burden, deprivation or care?"
 RUNNING = "Blood and immune disorder deaths in Korea"
 KEYWORDS = ["anemia", "mortality", "older adults", "spatial analysis", "Republic of Korea"]
 assert ":" not in TITLE and len(RUNNING) <= 45 and len(TITLE.replace(" ", "")) <= 125 and 3 <= len(KEYWORDS) <= 5
@@ -46,7 +49,7 @@ METHODS = [
 ("Statistical analysis",
  f"Five likelihoods were compared with the same random effects ({sup('lik')}). "
  f"The principal model was negative binomial, which had a lower widely applicable information criterion (WAIC) than Poisson for the forced-control model ({N['waic_nb']:,.1f} versus {N['waic_pois']:,.1f}) [@gelman2014understanding]; a Poisson model with an observation-level effect had a lower WAIC ({POI['WAIC']:,.1f}) and was refitted as an alternative specification. The model had an offset of log expected deaths, a Besag–York–Mollié 2 district effect with penalised-complexity priors [@besag1991bayesian; @riebler2016intuitive; @simpson2017penalising] and random-walk and independent year effects, fitted by integrated nested Laplace approximation in R 4.6.0 [@rue2009approximate; @web:rcore2026]. "
- "Rate ratios (RRs) per 1 SD are reported with 95% credible intervals (CrIs); an association was called credible when its interval excluded 1. "
+ "Rate ratios (RRs) per 1 SD are reported with 95% credible intervals (CrIs), rounded to two decimals; an association was called credible when its unrounded interval excluded 1. "
  "Residual hot spots and cold spots, an exploratory classification not adjusted for multiple comparisons, were districts whose posterior probability of a residual spatial RR above 1 exceeded 0.95 or fell below 0.05. "
  "Stability was described by Kendall's W over the 15 annual SMRs, Spearman correlations of SMRs between 2011–2015, 2016–2019 and 2020–2025, annual and pooled Moran's I [@moran1950notes], maps refitted in the three periods and emerging hot-spot analysis.",
  f"Robustness was assessed in {N['mv_total']} models with random covariate subsets (robust when credible in at least 75% of the models containing the characteristic) [@steegen2016increasing]; four Knorr-Held space-time interactions [@knorrheld2000bayesian]; {ALT} alternative fits of likelihood, temporal structure, lags, spatial confounding [@dupont2022spatial], extreme values, survey averaging and odd or even years (marked in {sup('specs')}); alternative district effects and priors; omission of each province and each year; and four sensitivity analyses with a 577-edge adjacency graph, without the covariate share aged 80 years or older, with crude rather than standardised expected deaths, and restricted to 2011–2024. "
@@ -59,18 +62,18 @@ RESULTS = [
  f"There were {N['cases_total']:,} deaths over 2011–2025, rising from {N['n_y'][2011]} in 2011 to {N['n_y'][2025]} in 2025 (Table 1). "
  f"In the national age table, {N['pct65']:.1f}% occurred at 65 years or older and {N['pct80']:.1f}% at 80 years or older, {N['pct_women']:.1f}% were in women and {N['anaemia_share']:.1f}% were anaemias (Figure 1). "
  f"The age-standardised rate was {A0(2011):.2f} per 100,000 in 2011 and {A0(2025):.2f} in 2025. "
- f"Of the district-years, {N['zeros']} ({100*N['zeros']/N['n_rows']:.0f}%) had no death; the negative binomial model expected {NB['expected_zeros']:.0f}, and the zero-inflated negative binomial model estimated a structural-zero probability of {ZINB['zero_prob']:.3f} without a lower WAIC ({ZINB['WAIC']:,.1f} versus {NB['WAIC']:,.1f}; {sup('lik')})."),
+ f"Of the district-years, {N['zeros']} ({100*N['zeros']/N['n_rows']:.1f}%) had no death; the negative binomial model expected {NB['expected_zeros']:.0f}, and the zero-inflated negative binomial model estimated a structural-zero probability of {ZINB['zero_prob']:.3f} without a lower WAIC ({ZINB['WAIC']:,.1f} versus {NB['WAIC']:,.1f}; {sup('lik')})."),
 ("Geography and its stability",
  f"The 15-year district SMR had a median of {T1['ALL']['med']:.2f} (10th–90th percentile {T1['ALL']['p10']:.2f}–{T1['ALL']['p90']:.2f}), and Moran's I of the pooled log SMR was {N['moran_pooled']:.2f}. "
- f"The spatially structured component accounted for {100*N['vp_spatial']:.0f}% of the variance of the linear predictor (mixing parameter φ {N['phi'][0]:.2f}, 95% CrI {N['phi'][1]:.2f}–{N['phi'][2]:.2f}). "
+ f"The spatially structured component accounted for {100*N['vp_spatial']:.1f}% of the variance of the linear predictor (mixing parameter φ {N['phi'][0]:.2f}, 95% CrI {N['phi'][1]:.2f}–{N['phi'][2]:.2f}). "
  f"There were {N['n_hot']} residual hot spots, in {sidos(N['hot_by_sido'])}, and {N['n_cold']} cold spots, in {sidos(N['cold_by_sido'])} (Figure 2; {sup('hot')}); all {N['n_busan']} districts of Busan were hot spots, with residual RRs up to {N['rr_max']:.2f}. "
  f"Busan and the south-east had the highest spatial RRs in each of the three periods (Figure 3). In single years, Moran's I ranged from {N['moran_year'][0]:.2f} to {N['moran_year'][1]:.2f}, Kendall's W was {N['kendall']['2011-2025']:.2f}, and Spearman correlations of SMRs between periods were {N['rho_win'][0]:.2f}–{N['rho_win'][1]:.2f}; "
  f"emerging hot-spot analysis classified {N['ehsa']['Sporadic hot'] + N['ehsa']['Intensifying hot'] + N['ehsa']['Consecutive hot']} districts, all in Busan and its neighbour Yangsan, as sporadic, intensifying or consecutive hot spots and none as persistent."),
 ("District characteristics",
  f"Across districts, the 15-year SMR was correlated with the suspected-anaemia ratio (ρ {N['rho_raw']['ane']:.2f}) and the livelihood-recipient share (ρ {N['rho_raw']['bls']:.2f}). "
  f"In the principal model, none of the eight characteristics had a credible association (Table 2): suspected anaemia {ci(ANE)}, suspected kidney disease {ci(KID)}, livelihood recipients {ci(BLS)}, tertiary education {ci(TE)} and long-term care hospitals {ci(LTC)}. "
- f"Adding them did not lower the WAIC ({N['waic_forced']:,.1f} for forced controls alone and {N['waic_main']:,.1f} with all characteristics), and none was robust in the covariate-subset models (largest share credible {100*max(MV(v) for v in HYP):.0f}%, tertiary education). Residual Moran's I was {N['moran_resid']:.2f}. "
- f"Long-term care hospitals were credible in the 2016–2019 and 2020–2025 refits and in their interaction with the post-2020 period, but in no covariate-subset model, in {RET[LTC][0]} of the {RET[LTC][1]} alternative fits (even years only) and in the models with an independent or no district effect. Of the negative control exposures, fires was borderline ({tci(N['negctl']['fires_per_10000'][:3])}; lower limit {N['negctl']['fires_per_10000'][1]:.4f}).",
+ f"Adding them did not lower the WAIC ({N['waic_forced']:,.1f} for forced controls alone and {N['waic_main']:,.1f} with all characteristics), and none was robust in the covariate-subset models (largest share credible {100*max(MV(v) for v in HYP):.1f}%, tertiary education). Residual Moran's I was {N['moran_resid']:.2f}. "
+ f"Long-term care hospitals were credible in the 2016–2019 and 2020–2025 refits and in their interaction with the post-2020 period, but in no covariate-subset model, in {RET[LTC][0]} of the {RET[LTC][1]} alternative fits (even years only) and in the models with an independent or no district effect. Of the negative control exposures, the fires exposure had a lower limit at 1 ({tci(N['negctl']['fires_per_10000'][:3])}).",
  f"Of the forced controls, fiscal autonomy was inversely associated with deaths ({ci(FIS)}; 1 SD = {T1['ALL']['cov'][FIS][1]:.1f} percentage points), in all {RET[FIS][1]} alternative fits, all four Knorr-Held models (type IV, with the lowest WAIC, similar to type III: {tci(S43(BEST_KH, FIS))}), {LO[('province', FIS)][1]} of {NPROV} province omissions, {LO[('year', FIS)][1]} of {NYR} year omissions and the sensitivity analyses with the other adjacency graph, without the share aged 80 years or older and restricted to 2011–2024. "
  f"For transport-injury deaths its association was in the opposite direction ({tci(NCO('TRANS', FIS))}). "
  f"With crude expected deaths, five further coefficients became credible: livelihood recipients ({tci(SEN('sens_crude', BLS))}), tertiary education ({tci(SEN('sens_crude', TE))}), internal-medicine specialists, in the direction opposite to that expected ({tci(SEN('sens_crude', IMS))}), urban population share ({tci(SEN('sens_crude', 'urban_population_share'))}) and the share aged 80 years or older ({tci(SEN('sens_crude', P80))})."),

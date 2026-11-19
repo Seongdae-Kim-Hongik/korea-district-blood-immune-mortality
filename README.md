@@ -1,10 +1,10 @@
-# District geography of deaths from anemias and immune disorders, Republic of Korea, 2011-2025
+# District geography of deaths from blood and immune disorders, Republic of Korea, 2011-2025
 
 Analysis code for the manuscript
 
-> Kim S. *Is the excess of deaths from anemias and immune disorders in Busan, Korea, explained by anemia burden, deprivation or care?* Manuscript under review.
+> Kim S. *Is the excess of deaths from blood and immune disorders in Busan, Korea, explained by anemia burden, deprivation or care?* Manuscript under review.
 
-Archived version: Zenodo, https://doi.org/10.5281/zenodo.24366493 (v1.0.0).
+Archived version: Zenodo, https://doi.org/10.5281/zenodo.24366898 (v1.0.1).
 
 ## Contents
 

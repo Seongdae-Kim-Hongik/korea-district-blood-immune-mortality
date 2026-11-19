@@ -91,16 +91,16 @@ GROUPS = [("Anaemia and kidney disease burden", [C.ANE, C.KID]), ("Deprivation a
 LABEL = {C.ANE: "Suspected anaemia, standardised ratio (+)", C.KID: "Suspected kidney disease (+)", C.BLS: "Basic livelihood recipients (+)", C.TE: "Tertiary-educated adults (−)", C.UNM: "Unmet medical need (+)",
          C.LTC: "Long-term care hospitals (+)", C.IMS: "Internal-medicine specialists (−)", C.ILL: "Ill-defined causes of death (−)",
          "urban_population_share": "Urban population share", "physicians_per_1000": "Physicians per 1,000", "sex_ratio": "Sex ratio", "fiscal_independence": "Fiscal autonomy", "pop80_share": "Population aged ≥ 80 years"}
-def f3(t): return f"{t[0]:.2f} ({t[1]:.2f}–{t[2]:.2f})"
+def f3(t): a, b, c = C._fmt(t); return f"{a} ({b}–{c})"
 def table2():
     rows = []; assert sum(len(v) for g, v in GROUPS[:-1]) == N["n_hyp"] and set(LABEL) == set(N["main"])
     for g, vs in GROUPS:
         rows.append(["__H__", g])
         for v in vs:
             m = N["main"][v]; mv = N["mv"].get(v); k = N["s43"][(C.BEST_KH, v)]; y24 = N["sens"]["sens_y24"][v]; sc = N["sens"]["sens_crude"][v]; tr = N["nco"][("TRANS", v)]
-            rows.append([f"  {LABEL[v]}", f3((m["IRR"], m["lo"], m["hi"])), f"{100*mv['cred_frac']:.0f}" if mv else "Forced", f3(k), f3(y24), f3(sc), f3(tr)])
+            rows.append([f"  {LABEL[v]}", f3((m["IRR"], m["lo"], m["hi"])), f"{100*mv['cred_frac']:.1f}" if mv else "Forced", f3(k), f3(y24), f3(sc), f3(tr)])
     foot = (f"CrI, credible interval; RR, rate ratio per 1 standard deviation; expected direction in parentheses. Principal model: negative binomial with a Besag–York–Mollié 2 district effect and random-walk and independent year effects, all characteristics and five forced controls (n = {N['n_rows']:,} district-years). "
-            "*Share of the 200 covariate-subset models containing the characteristic in which the CrI excluded 1. †Knorr-Held type IV space-time interaction added, the best-fitting interaction model. "
+            "Credibility was judged on unrounded interval limits; limits that round to 1.00 are shown to three decimals. *Share of the 200 covariate-subset models containing the characteristic in which the CrI excluded 1. †Knorr-Held type IV space-time interaction added, the best-fitting interaction model. "
             "‡Crude expected deaths (population × national rate) instead of sex- and age-standardised expected deaths. §Transport-injury deaths as a comparison outcome with the same model.")
     return (f"Table 2 District characteristics and blood and immune disorder deaths, {N['n_districts']} districts, Republic of Korea, 2011–2025",
             ["Characteristic", "Principal RR (95% CrI)", "Subsets credible, %*", "Type IV RR (95% CrI)†", "2011–2024 only", "Crude expected deaths‡", "Transport-injury deaths§"], rows, foot)
@@ -110,7 +110,7 @@ FIGCAP = {
  2: "District geography of blood and immune disorder deaths, 229 districts, 2011–2025. (A) Standardised mortality ratio (observed over sex- and age-standardised expected deaths), 15 years pooled. (B) Residual spatial rate ratio from the principal model. (C) Residual hot spots and cold spots (posterior probability of a rate ratio above 1 greater than 0.95 or less than 0.05). Thick lines are province boundaries.",
  3: "Residual spatial rate ratios refitted separately in (A) 2011–2015, (B) 2016–2019 and (C) 2020–2025, 229 districts. Hot spots (posterior probability of a rate ratio above 1 greater than 0.95) are outlined.",
 }
-SUPPINFO = ["Supplementary Text S1. Supplementary methods and additional results.", "Supplementary Table S1. Source, unit, observed years and expected direction of each district characteristic.",
+SUPPINFO = ["Supplementary Text S1. Supplementary methods and additional results.", "Supplementary Table S1. Source, unit, expected direction and filled cells of each district characteristic.",
             "Supplementary Table S2. Likelihood comparison.", "Supplementary Table S3. Rate ratios across alternative specifications.", "Supplementary Table S4. Residual hot spots and cold spots.", "Supplementary Text S2. STROBE checklist."]
 def foot_row(J, text, sz=9, ls=13):
     from docx.enum.text import WD_LINE_SPACING

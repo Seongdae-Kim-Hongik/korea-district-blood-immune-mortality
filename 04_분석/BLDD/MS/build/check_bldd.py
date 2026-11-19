@@ -85,7 +85,8 @@ ok(not re.search(r"(?i)private link|restricted during|token", _dx + cov), "심�
 for k, lab in C.SUP.items():
     ok(lab in body, f"보충 {lab} 본문 인용"); ok(lab in supt, f"보충 {lab} 보충자료에 존재")
 seen = []; [seen.append(t) for t in re.findall(r"Table (S\d)", body) if t not in seen]; ok(seen == sorted(seen), f"보충 표 번호 = 본문 첫 인용 순서 {seen}")
-ok(not re.search(r"RR \d\.\d{3}", body) and not re.search(r"CrI \d\.\d{3}", body), "RR·CrI 소수 2자리(JAGS)")
+_bad3 = [m.group(0) for m in re.finditer(r"RR (\d\.\d+), 95% CrI (\d\.\d+)–(\d\.\d+)", body) if len(m.group(1).split(".")[1]) != 2 and not (f"{float(m.group(2)):.2f}" == "1.00" or f"{float(m.group(3)):.2f}" == "1.00" or f"{float(m.group(2)):.2f}" == f"{float(m.group(3)):.2f}")]
+ok(not _bad3, f"RR·CrI 소수 2자리(JAGS, 1.00 경계만 3자리) {_bad3[:2]}")
 G = os.path.expandvars("$ST_DATA_ROOT") + "/G.Downloads/00_PLAYBOOK/검증기록/check_citation_order.py"
 co = subprocess.run([sys.executable, G, os.path.join(OUT, MSF)], capture_output=True, text=True).stdout; ok("PASS" in co and "경고 0" in co, "인용 순서 check_citation_order PASS")
 open(os.path.join(OUT, "check.txt"), "w").write("\n".join(R)); nf = sum(r.startswith("FAIL") for r in R)
